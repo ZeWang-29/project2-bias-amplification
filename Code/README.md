@@ -67,12 +67,11 @@ Scripts for reproducing figures in the paper.
 | `plot_bias_across_generations.py` | **Figure 3a, 5a, 6, 7** | Line plots of bias percentage across generations for different setups |
 | `plot_text_quality_index.py` | **Figure 3b, 5b** | Line plots of Text Quality Index across generations with 95% CIs |
 | `plot_neuron_weight_bias_correlation.py` | **Figure 4a** | Scatter plot of Pearson correlations between neuron weights and bias performance |
+| `plot_neuron_weight_quality_correlation.py` | **Figure 4b** | Scatter plot of Pearson correlations between neuron weights and text quality index |
 | `plot_pvalue_scatter.py` | **Section 4.4** | Scatter plot of Newey-West adjusted p-values |
 | `plot_tqi_distribution.py` | **Figure 8** | Histogram of Text Quality Index distribution across generations |
 | `plot_perplexity.py` | **Figure 9** | Average perplexity across generations with 95% CIs |
 | `plot_bias_bar_chart.py` | **Figure 2** (variant) | Bar charts of bias distribution per generation |
-
-**Note**: The code for Figure 4b (Neuron Weight vs. Text Quality Index) is analogous to `plot_neuron_weight_bias_correlation.py` — replace the bias performance input CSV with the Text Quality Index correlation CSV.
 
 ### `theory/`
 Scripts for the theoretical simulation in Appendix L.
