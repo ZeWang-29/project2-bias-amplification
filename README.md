@@ -63,12 +63,33 @@ The original news articles are from the [Webis-Bias-Flipper-18](https://zenodo.o
 ## Citation
 
 ```bibtex
-@inproceedings{wang-etal-2025-bias-amplification,
+@inproceedings{wang-etal-2025-bias,
     title = "Bias Amplification: Large Language Models as Increasingly Biased Media",
-    author = "Wang, Ze and Wu, Zekun and Zhang, Jeremy and Guan, Xin and Jain, Navya and Lu, Skylar and Gupta, Saloni and Koshiyama, Adriano",
+    author = "Wang, Ze  and
+      Wu, Zekun  and
+      Zhang, Yichi  and
+      Guan, Xin  and
+      Jain, Navya  and
+      Lu, Qinyang  and
+      Gupta, Saloni  and
+      Koshiyama, Adriano",
+    editor = "Inui, Kentaro  and
+      Sakti, Sakriani  and
+      Wang, Haofen  and
+      Wong, Derek F.  and
+      Bhattacharyya, Pushpak  and
+      Banerjee, Biplab  and
+      Ekbal, Asif  and
+      Chakraborty, Tanmoy  and
+      Singh, Dhirendra Pratap",
     booktitle = "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics",
+    month = dec,
     year = "2025",
-    pages = "115--132"
+    address = "Mumbai, India",
+    publisher = "The Asian Federation of Natural Language Processing and The Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.ijcnlp-long.8/",
+    pages = "115--132",
+    ISBN = "979-8-89176-298-5",
 }
 ```
 
