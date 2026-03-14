@@ -63,7 +63,35 @@ The original news articles are from the [Webis-Bias-Flipper-18](https://zenodo.o
 ## Citation
 
 ```bibtex
-@inproceedings{wang-etal-2025-bias, title = "Bias Amplification: Large Language Models as Increasingly Biased Media", author = "Wang, Ze  and Wu, Zekun  and Zhang, Yichi  and Guan, Xin  and Jain, Navya  and Lu, Qinyang  and Gupta, Saloni  and Koshiyama, Adriano", editor = "Inui, Kentaro  and Sakti, Sakriani  and Wang, Haofen  and Wong, Derek F.  and Bhattacharyya, Pushpak  and Banerjee, Biplab  and Ekbal, Asif  and Chakraborty, Tanmoy  and Singh, Dhirendra Pratap", booktitle = "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics", month = dec, year = "2025", address = "Mumbai, India", publisher = "The Asian Federation of Natural Language Processing and The Association for Computational Linguistics", url = "https://aclanthology.org/2025.ijcnlp-long.8/", pages = "115--132", ISBN = "979-8-89176-298-5", abstract = "Model collapse{---}a phenomenon where models degrade in performance due to indiscriminate use of synthetic data{---}is well studied. However, its role in bias amplification{---}the progressive reinforcement of pre-existing social biases in Large Language Models (LLMs){---}remains underexplored. In this paper, we formally define the conditions for bias amplification and demonstrate through statistical simulations that bias can intensify even in the absence of sampling errors, the primary driver of model collapse. Empirically, we investigate political bias amplification in GPT-2 using a custom-built benchmark for sentence continuation tasks. Our findings reveal a progressively increasing right-leaning bias. Furthermore, we evaluate three mitigation strategies{---}Overfitting, Preservation, and Accumulation{---}and show that bias amplification persists even when model collapse is mitigated. Finally, a mechanistic interpretation identifies distinct sets of neurons responsible for model collapse and bias amplification, suggesting they arise from different underlying mechanisms." }
+@inproceedings{wang-etal-2025-bias,
+    title = "Bias Amplification: Large Language Models as Increasingly Biased Media",
+    author = "Wang, Ze  and
+      Wu, Zekun  and
+      Zhang, Yichi  and
+      Guan, Xin  and
+      Jain, Navya  and
+      Lu, Qinyang  and
+      Gupta, Saloni  and
+      Koshiyama, Adriano",
+    editor = "Inui, Kentaro  and
+      Sakti, Sakriani  and
+      Wang, Haofen  and
+      Wong, Derek F.  and
+      Bhattacharyya, Pushpak  and
+      Banerjee, Biplab  and
+      Ekbal, Asif  and
+      Chakraborty, Tanmoy  and
+      Singh, Dhirendra Pratap",
+    booktitle = "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics",
+    month = dec,
+    year = "2025",
+    address = "Mumbai, India",
+    publisher = "The Asian Federation of Natural Language Processing and The Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.ijcnlp-long.8/",
+    pages = "115--132",
+    ISBN = "979-8-89176-298-5",
+    abstract = "Model collapse{---}a phenomenon where models degrade in performance due to indiscriminate use of synthetic data{---}is well studied. However, its role in bias amplification{---}the progressive reinforcement of pre-existing social biases in Large Language Models (LLMs){---}remains underexplored. In this paper, we formally define the conditions for bias amplification and demonstrate through statistical simulations that bias can intensify even in the absence of sampling errors, the primary driver of model collapse. Empirically, we investigate political bias amplification in GPT-2 using a custom-built benchmark for sentence continuation tasks. Our findings reveal a progressively increasing right-leaning bias. Furthermore, we evaluate three mitigation strategies{---}Overfitting, Preservation, and Accumulation{---}and show that bias amplification persists even when model collapse is mitigated. Finally, a mechanistic interpretation identifies distinct sets of neurons responsible for model collapse and bias amplification, suggesting they arise from different underlying mechanisms."
+}
 ```
 
 ## License
