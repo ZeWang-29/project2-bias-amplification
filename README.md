@@ -3,7 +3,7 @@
 This repository contains the data and code for the paper:
 
 > **Bias Amplification: Large Language Models as Increasingly Biased Media**
-> Ze Wang, Zekun Wu, Jeremy Zhang, Xin Guan, Navya Jain, Skylar Lu, Saloni Gupta, Adriano Koshiyama
+> Ze Wang, Zekun Wu, Yichi Zhang, Xin Guan, Navya Jain, Qinyang Lu, Saloni Gupta, Adriano Koshiyama
 > *Proceedings of the 14th International Joint Conference on Natural Language Processing (IJCNLP) and the 4th Conference of the Asia-Pacific Chapter of the ACL*, 2025.
 > [Paper](https://aclanthology.org/2025.ijcnlp-long.8/)
 
@@ -39,7 +39,7 @@ The `Data/` directory contains all processed experiment results needed to reprod
 
 The `Code/` directory contains all scripts used in the paper, organized by function. See [`Code/README.md`](Code/README.md) for a complete mapping of scripts to paper figures/sections.
 
-The experiments were run on Kaggle with GPU acceleration. File paths in the scripts reflect the original Kaggle environment.
+The experiments were originally run on Kaggle with GPU acceleration. Each script has a **Configuration** section at the top with adjustable file paths and parameters. Plotting scripts reference the `Data/` directory directly and can reproduce figures without additional setup.
 
 ### Key Components
 

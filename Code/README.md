@@ -1,6 +1,6 @@
 # Code
 
-This directory contains all code used in the paper. The experiments were run on Kaggle with GPU acceleration. File paths in the scripts reflect the original Kaggle environment and should be adjusted accordingly.
+This directory contains all code used in the paper. The experiments were originally run on Kaggle with GPU acceleration. Each script has a **Configuration** section at the top with adjustable file paths and parameters.
 
 ## Directory Structure
 
