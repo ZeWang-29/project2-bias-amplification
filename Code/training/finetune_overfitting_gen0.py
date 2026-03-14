@@ -1,55 +1,68 @@
+"""
+Fine-tune base GPT-2 with the Overfitting mitigation strategy to produce Generation 0.
+
+Differences from the standard setup:
+  - 25 epochs (5x baseline)
+  - weight_decay = 0 (no regularization)
+
+Paper reference: Section 4.3 (Mitigation Strategies — Overfitting)
+"""
+
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, Trainer, TrainingArguments, DataCollatorForLanguageModeling
 from datasets import load_dataset
 
-# Load the prepared dataset
-dataset = load_dataset('text', data_files={'train': '/kaggle/input/dataset-dd/DD.txt'})
+# ============================================================
+# Configuration — adjust these paths to your environment
+# ============================================================
+REAL_DATA_PATH = "D_mixed.txt"          # 1,518 real articles
+OUTPUT_MODEL_DIR = "models/MMO1"        # Output directory for Overfitting Generation 0 model
 
-# Initialize the tokenizer and model
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = GPT2LMHeadModel.from_pretrained('gpt2')
+# ============================================================
+# Fine-tuning (Overfitting setup: 25 epochs, weight_decay=0)
+# ============================================================
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Set the EOS token as the padding token
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+model.to(device)
+
 tokenizer.pad_token = tokenizer.eos_token
 
+dataset = load_dataset("text", data_files={"train": REAL_DATA_PATH})
 
-# Tokenize the dataset
 def tokenize_function(examples):
-    return tokenizer(examples['text'], truncation=True, padding='max_length', max_length=512)
+    return tokenizer(examples["text"], truncation=True, padding="max_length", max_length=512)
 
 tokenized_datasets = dataset.map(tokenize_function, batched=True, remove_columns=["text"])
 
- # Set up the data collator for language modeling
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
-    # Define training arguments
 training_args = TrainingArguments(
-output_dir='./results',
-overwrite_output_dir=True,
-num_train_epochs=25,  # Increased from 5 to 25 epochs to overfit
-per_device_train_batch_size=8,  # Batch size per device during training
-save_steps=10_000,  # Save the model every 10,000 steps
-save_total_limit=1,  # Limit the total amount of checkpoints
-logging_dir='./logs',  # Directory for storing logs
-logging_steps=200,  # Log every 200 steps
-learning_rate=5e-5,  # Learning rate
-weight_decay=0.0,  # Set to 0 to reduce regularization and promote overfitting
-evaluation_strategy="no",
-report_to="none"  # Disable W&B reporting
+    output_dir=OUTPUT_MODEL_DIR,
+    overwrite_output_dir=True,
+    num_train_epochs=25,                # 5x baseline to encourage overfitting
+    per_device_train_batch_size=8,
+    save_steps=10_000,
+    save_total_limit=1,
+    logging_dir="./logs",
+    logging_steps=200,
+    learning_rate=5e-5,
+    weight_decay=0.0,                   # No regularization
+    evaluation_strategy="no",
+    report_to="none",
 )
 
-    # Initialize the Trainer
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_datasets['train'],
+    train_dataset=tokenized_datasets["train"],
     data_collator=data_collator,
     tokenizer=tokenizer,
 )
 
-    # Start fine-tuning
 trainer.train()
 
-    # Save the fine-tuned model
-model.save_pretrained('MMK1')
-tokenizer.save_pretrained('MMK1')
+model.save_pretrained(OUTPUT_MODEL_DIR)
+tokenizer.save_pretrained(OUTPUT_MODEL_DIR)
+print(f"Overfitting Generation 0 model saved to {OUTPUT_MODEL_DIR}")
