@@ -58,7 +58,7 @@ Scripts for the neuron-level mechanistic interpretation.
 | `pearson_correlation.py` | Computes Pearson correlation between neuron activations and bias performance (or generation quality) across model versions. | Section 3.6, 4.4 |
 | `newey_west_regression.py` | Performs linear regression with Newey-West HAC-adjusted standard errors to test statistical significance of neuron-metric correlations. | Section 3.6, Appendix G |
 
-**Note on neuron weights vs. activations**: The paper reports both weight-based and activation-based analyses (Section 4.4). Neuron weight extraction follows the same approach as `extract_activations.py` but reads `model.transformer.h[i].mlp.c_proj.weight` directly instead of registering forward hooks. The correlation and regression scripts (`pearson_correlation.py`, `newey_west_regression.py`) apply identically to both weight and activation CSVs.
+**Note on neuron weights vs. activations**: The paper reports both weight-based and activation-based analyses (Section 4.4). Neuron weight extraction follows a similar approach to `extract_activations.py` but accesses the FFN sublayer parameters (e.g., `model.transformer.h[i].mlp`) directly from each model checkpoint rather than registering forward hooks. The downstream correlation and regression scripts (`pearson_correlation.py`, `newey_west_regression.py`) apply identically to both weight and activation CSVs.
 
 ### `plotting/`
 Scripts for reproducing figures in the paper.
