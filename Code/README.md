@@ -55,8 +55,10 @@ Scripts for the neuron-level mechanistic interpretation.
 | Script | Description | Paper Section |
 |--------|-------------|---------------|
 | `extract_activations.py` | Extracts average activation values for all 9,216 neurons (768 per layer x 12 layers) across all 66 fine-tuned GPT-2 models. | Section 3.6 |
-| `pearson_correlation.py` | Computes Pearson correlation between neuron weights (or activations) and bias performance (or generation quality) across model versions. | Section 3.6, 4.4 |
+| `pearson_correlation.py` | Computes Pearson correlation between neuron activations and bias performance (or generation quality) across model versions. | Section 3.6, 4.4 |
 | `newey_west_regression.py` | Performs linear regression with Newey-West HAC-adjusted standard errors to test statistical significance of neuron-metric correlations. | Section 3.6, Appendix G |
+
+**Note on neuron weights vs. activations**: The paper reports both weight-based and activation-based analyses (Section 4.4). Neuron weight extraction follows the same approach as `extract_activations.py` but reads `model.transformer.h[i].mlp.c_proj.weight` directly instead of registering forward hooks. The correlation and regression scripts (`pearson_correlation.py`, `newey_west_regression.py`) apply identically to both weight and activation CSVs.
 
 ### `plotting/`
 Scripts for reproducing figures in the paper.
